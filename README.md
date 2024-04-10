@@ -23,6 +23,7 @@ The model was tested against the testing folder (contains unseen images), this i
 We used a confusion matrix to determine the accuracy versus recall values for the models as we ran them. We also looked at the validation accuracy versus training accuracy, and validation loss versus training loss to determine if the model was overfitting. 
 
 ![image](https://github.com/DmitriyBachkala/Brain-Tumor-Predictor/assets/111262299/a5243b86-8de8-4057-b5f4-125b0b87bc65)
+![image](https://github.com/DmitriyBachkala/Brain-Tumor-Predictor/assets/111262299/6bbb2eb0-b742-4ec3-a58f-ad458288cd77)
 
 
 Our initial tests involved categorizing images into 4 classification groups by tumor type: glioma, meningioma, pituitary, or no tumor present. However, the overall accuracy, and especially in the “no tumor” category yielded less than optimal results at 57% overall accuracy. After hypertuning, we were able to increase the overall accuracy to 69%, but we determined a binary model would be a better overall solution to the problem. It is more important to predict whether a tumor is present or absent than knowing the specific type of tumor: glioma vs meningioma vs pituitary. 
