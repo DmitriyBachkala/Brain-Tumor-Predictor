@@ -10,7 +10,7 @@ Data was pulled from Kaggle. Ethical considerations were made to use a publicly 
 We used ImageDataGenerater to take images, flip, contort, zoom, tilt and then feed our model. This was needed for variation, allowing us to have more parameters for the model to be trained on. 
 
 ## Training: 
-We used 4 convolutional layers. The first layer consisted of 32 filters, 64 filters for the second layer, 128 filters for the third layer, and 128 layers for the 4th layer. We used a flatten parameter to further shape the data. As a counter to overfitting we applied a dropout parameter of 50%. Our dense layer had 512 filters and our output layer had 1 filter.   
+We used 4 convolutional layers. The first layer consisted of 32 filters, 64 filters for the second layer, 128 filters for the third layer, and 128 layers for the 4th layer. We used a flatten parameter to further shape the data. As a counter to overfitting we applied a dropout parameter of 50%. Our dense layer had 512 filters and our output layer had 1 filter. With the exception of the output layer, the relu activation function was applied in each layer. 
 
 
 ## Optimization: 
