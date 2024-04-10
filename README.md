@@ -39,4 +39,3 @@ Augmentation for binary: After combining all the tumor classes we had an unbalan
 
 Website was built with an api_flask python file, an html, and a css for styling. 
 
-(Include images of confusion matrices)
