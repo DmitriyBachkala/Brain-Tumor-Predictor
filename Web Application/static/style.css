@@ -1,0 +1,113 @@
+/* Enhance the jumbotron header */
+body {
+    background-image: url('../static/Assets/background.jpg');
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+}
+
+/* CSS styles for the form */
+.form-horizontal {
+    font-size: 20px; /* Adjust the font size as desired */
+    padding: 10px;
+}
+
+/* CSS styles for the label font*/
+.form-horizontal label {
+    color: rgb(255, 255, 255); /* Set the color to white */
+}
+
+/* CSS styles for the input field */
+.form-horizontal input[type="file"] {
+    color: rgba(15, 0, 100, 0.363);
+}
+
+/* CSS styles for the button */
+.form-horizontal button[type="submit"] {
+    font-size: 15px; /* Adjust the font size as desired */
+    color: rgb(0, 0, 0); /* Set the color to white */
+}
+
+/* prediction */
+.tumor-status {
+    color: rgb(255, 0, 0); /* Change the color as desired */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    text-align: left;
+    margin-left: 80px; /* Add margin to push the text to the right */
+}
+
+.content-container {
+    background-color: rgba(23, 17, 100, 0.212); /* Replace with the desired background color */
+    padding: 10px; /* Add padding to space the content from the edges */
+    margin-bottom: 100px;
+}
+
+.jumbotron {
+    background-color: rgba(22, 14, 99, 0.8);
+    color: rgb(255, 255, 255);
+    padding: 25px; /* Increase spacing */
+    text-align: center;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(201, 197, 255, 0.692); /* Add shadow to text */
+}
+
+.jumbotron2 {
+    background-color: rgba(22, 14, 99, 0.8);
+    color: rgb(255, 255, 255);
+    padding: 25px; /* Increase spacing */
+    text-align: center;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(201, 197, 255, 0.692); /* Add shadow to text */
+}
+
+.container {
+    width: 100%; /* Ensures the container fills the width */
+
+}
+
+.image-set img {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px; /* Add some space around images */
+    border-radius: 10px; /* Round corners of images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+#selected-image-set-header {
+    font-size: 16px;
+    text-align: left;
+    color: #cacbff;
+    background-color: rgba(37, 29, 116, 0.205);
+    padding: 14px; /* Add padding */
+    margin-bottom: 30px; /* Add margin to separate it from other elements */
+    display: inline-block; /* Set display to inline-block */
+    border-radius: 3px; /* Round the corners */
+}
+
+.class-header {
+    font-size: 24px; /* Adjust the font size as per your requirement */
+    color: white; /* Change the color to white */
+}
+
+/* Custom styling for dropdown menu */
+.dropdown .btn-primary {
+    background-color: rgba(23, 17, 77, 0.671); /* Dark blue background color */
+    border-color: #26277700; /* Dark blue border color */
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust padding to make the button bigger */
+    margin-top: 30px;
+}
+
+.dropdown-menu {
+    background-color: #ffffffe0; /* Dark blue background color */
+}
+
+.github-link-container {
+    text-align: center;
+    background-color: rgba(22, 14, 99, 0.8);
+    font-size: 25px;
+    padding: 20px;
+    margin-bottom: 80px;
+}

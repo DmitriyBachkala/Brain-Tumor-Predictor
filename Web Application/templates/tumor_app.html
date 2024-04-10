@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</div>
+<title>Brain Tumor Detector</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="jumbotron bg-primary">Brain Tumor Predictor Results</h1>
+    
+    <!-- Dropdown Menu for Image Sets -->
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Image Set
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#" onclick="showImageSet('accuracy')">Accuracy Images</a></li>
+        <li><a href="#" onclick="showImageSet('loss')">Loss Images</a></li>
+        <li><a href="#" onclick="showImageSet('confusionmatrix')">Confusion Matrix Images</a></li>
+        <li><a href="#" onclick="showImageSet('testinglog')">Testing Log</a></li>
+      </ul>
+    </div>
+    <h2 id="selected-image-set-header"></h2> <!-- Header for selected image set -->
+    <br><br>
+    <!-- Accuracy Images -->
+    <div id="accuracy-images" class="image-set">
+      <hr class="image-divider1" data-label="Divider Label"><span class="class-header">Binary Class, 80%-95% Accuracy</span><hr>
+      <img src="../static/Imports/Binary_AvVA.png" alt="Image 3">
+      <img src="../static/Imports/AccBi.png" alt="Image 4">
+      <hr class="image-divider" data-label="Divider Label"><span class="class-header">Category Class, 60%-70& Accuracy</span><hr>
+      <img src="../static/Imports/Accuracy4.png" alt="Image 1">
+      <img src="../static/Imports/Accuracy5.png" alt="Image 2">
+      <img src="../static/Imports/accuracy7_480.png" alt="Image 5">
+    </div>
+    <!-- Loss Images -->
+    <div id="loss-images" class="image-set" style="display: none;">
+      <hr class="image-divider1" data-label="Divider Label"><span class="class-header">Binary Class</span><hr>
+      <img src="../static/Imports/Binary_LvVL.png" alt="Image 3">
+      <img src="../static/Imports/LossBi.png" alt="Image 4">
+      <hr class="image-divider" data-label="Divider Label"><span class="class-header">Category Class</span><hr>
+      <img src="../static/Imports/Loss4.png" alt="Image 1">
+      <img src="../static/Imports/Loss5.png" alt="Image 2">
+      <img src="../static/Imports/ValidationLA4.png" alt="Image 5">
+      <img src="../static/Imports/ValidationLA5.png" alt="Image 6">
+    </div>
+    <!-- Confusion Matrix Images -->
+    <div id="confusionmatrix-images" class="image-set" style="display: none;">
+      <hr class="image-divider1" data-label="Divider Label"><span class="class-header">Binary Class</span><hr>
+      <img src="../static/Imports/Binary_CM.png" alt="Image 1">
+      <img src="../static/Imports/Binary_CM2.png" alt="Image 2">
+      <hr class="image-divider" data-label="Divider Label"><span class="class-header">Category Class</span><hr>
+      <img src="../static/Imports/Category_CM.png" alt="Image 3">
+      <img src="../static/Imports/Category_CM2.png" alt="Image 4">
+    </div>
+    <!-- Testing Log Images -->
+    <div id="testinglog-images" class="image-set" style="display: none;">
+      <embed src="../static/Imports/Log/Hyper Tuning Log - Sheet1.pdf#zoom=175" type="application/pdf" width="100%" height="800px">
+      <hr class="image-divider" data-label="Divider Label">
+    </div>
+  </div>
+  <script>
+    function showImageSet(setName) {
+      // Hide all image sets
+      document.querySelectorAll('.image-set').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      
+      // Show the selected image set
+      if (setName === 'accuracy') {
+        document.getElementById('accuracy-images').style.display = 'block';
+        document.getElementById('selected-image-set-header').innerText = 'Accuracy Images'; 
+      } else if (setName === 'loss') {
+        document.getElementById('loss-images').style.display = 'block';
+        document.getElementById('selected-image-set-header').innerText = 'Loss Images';
+      } else if (setName === 'confusionmatrix') {
+        document.getElementById('confusionmatrix-images').style.display = 'block';
+        document.getElementById('selected-image-set-header').innerText = 'Confusion Matrix Images';
+      } else if (setName === 'testinglog') {
+        document.getElementById('testinglog-images').style.display = 'block';
+        document.getElementById('selected-image-set-header').innerText = 'Testing Log';
+      }
+    }
+  </script>
+    
+  <div class="github-link-container">
+    <a href="https://github.com/DmitriyBachkala/Brain-Tumor-Predictor.git" target="_blank" class="github-link">GitHub Repository</a>
+  </div>
+
+  <div class="container">
+    <h1 class="jumbotron2 bg-primary">Brain Tumor Detector</h1>
+  </div>
+  
+  <div class="content-container">
+    <div class="container">
+      <br><br>
+      <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Upload Your Image >>> </label>
+          <div class="col-sm-10">          
+            <input type="file" class="form-control" placeholder="Upload MRI Scan Image"  name="my_image" id="pwd">
+          </div>
+        </div>
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Classify</button>
+          </div>
+        </div>
+      </form>
+      {% if prediction %}
+      <h2 class="tumor-status">Brain Tumor Status: <i>{{ prediction }}</i></h2>
+      <!-- <img src="{{img_path}}" height="400px" width="400px"> -->
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
