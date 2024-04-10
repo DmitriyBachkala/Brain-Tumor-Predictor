@@ -14,15 +14,18 @@ We used 4 convolutional layers. The first layer consisted of 32 filters, 64 filt
 
 
 ## Optimization: 
-(well, we will need to repost this if we upload it from our local repository)  haha
-(Screen shot of test results)
+![image](https://github.com/DmitriyBachkala/Brain-Tumor-Predictor/assets/111262299/9d41f331-7f9b-480c-9b65-5941a282f15e)
+
 
 
 ## Testing: 
 The model was tested against the testing folder (contains unseen images), this is how we determined the testing accuracy.
 We used a confusion matrix to determine the accuracy versus recall values for the models as we ran them. We also looked at the validation accuracy versus training accuracy, and validation loss versus training loss to determine if the model was overfitting. 
 
-Our initial tests involved categorizing images into 4 classification groups by tumor type: glioma, meningioma, pituitary, or no tumor present. However, the overall accuracy, and especially in the “no tumor” category yielded less than optimal results at 56% overall accuracy. After hypertuning, we were able to increase the overall accuracy to 69%, but we determined a binary model would be a better overall solution to the problem. It is more important to predict whether a tumor is present or absent than knowing the specific type of tumor: glioma vs meningioma vs pituitary. 
+Our initial tests involved categorizing images into 4 classification groups by tumor type: glioma, meningioma, pituitary, or no tumor present. However, the overall accuracy, and especially in the “no tumor” category yielded less than optimal results at 57% overall accuracy. After hypertuning, we were able to increase the overall accuracy to 69%, but we determined a binary model would be a better overall solution to the problem. It is more important to predict whether a tumor is present or absent than knowing the specific type of tumor: glioma vs meningioma vs pituitary. 
+
+![Screenshot 2024-04-08 211627](https://github.com/DmitriyBachkala/Brain-Tumor-Predictor/assets/111262299/048a99f2-f794-47db-8f61-87e9e5a8e970)
+
 
 After switching our model to a binary convolutional neural network model, we were able to achieve 94% overall accuracy, with an 83% precision and 98% recall for no tumor, and 99% precision and 93% recall for the presence of a tumor. 
 
